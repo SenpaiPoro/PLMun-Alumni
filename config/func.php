@@ -5,9 +5,7 @@ require 'dbcon.php';
 
 function validate($inputData)
 {
-   
     global $conn;
-
     $validatedData = mysqli_real_escape_string($conn, $inputData);
     return trim($validatedData);
 }
@@ -18,9 +16,8 @@ function redirect ($url, $status)
    header('Location: '.$url);
    exit(0);
 }
-
 function alertMessage()
-{
+{ 
     if(isset($_SESSION['status']))
     {
         echo '<div class="alert alert-success">
@@ -29,7 +26,6 @@ function alertMessage()
         unset($_SESSION['status']);
     }
 }
-
 function checkId($paramType){
 
     if(isset($_GET[$paramType]))
@@ -95,16 +91,64 @@ function getByid($tablename, $id)
     }
 }
 
-function deleteQuery($tablename, $id){
+function deleteQuery($tablename, $id, $personalId){
     global $conn;
 
     $table = validate($tablename);
     $id = validate($id);
+    $personalId = validate($personalId);
 
-    $query = "DELETE FROM $table WHERE id='$id' LIMIT 1";
+    $query = 
+    "DELETE  $table, personal, contacts
+    FROM $table
+    JOIN 
+    personal 
+    ON $table.tempcode = personal.tempcode
+    JOIN
+    contacts
+    ON personal.tempcode = contacts.contactId
+    WHERE contacts.contactId = '$personalId'";
     $result = mysqli_query($conn, $query);
-
     return $result;
 }
 
+
+function programcode($program)
+{
+    switch ($program) {
+    case "information-technology":
+        return "bsit";
+        break;
+    case "computer-science":
+        return "bscs";
+        break;
+    case "act":
+        return "act";
+        break;
+    case "criminology":
+        return "bscrim";
+        break;
+    case "communication":
+        return "bscomm";
+        break;
+    case "political-science":
+        return "bsps";
+        break;
+     case "psychology":
+        return "bspsy";
+        break;
+    case "business-administration":
+        return "bsad";
+        break;
+    case "accountancy":
+        return "bsaccounting";
+        break;
+    case "elementary-education":
+    case "secondary-education":
+        return "bsed";
+        break;                                               
+    default:
+        return $program;
+}
+}
 ?>
