@@ -177,28 +177,38 @@ function programcode($program)
 }
 function Studentid($program){
     switch($program){
-        case "";
-        return;
+        case "bsit";
+        return "11";
         break;
-        case "";
-        return;
+        case "bscs";
+        return "12";
         break;
-        case "";
-        return;
+        case "act";
+        return "13";
         break;
-        case "";
-        return;
+        case "bscrim";
+        return "21";
         break;
-        case "";
-        return;
+        case "bscomm";
+        return "31";
         break;
-        case "";
-        return;
+        case "bsps";
+        return "32";
         break;
-        case "";
-        return;
+        case "bspsy";
+        return "33";
         break;
-        
+        case "bsad";
+        return "41";
+        break;
+        case "bsaccounting";
+        return "42";
+        break;
+        case "bsed";
+        return "51";
+        break;
+        default:
+        return "00";
     }
 
 }
