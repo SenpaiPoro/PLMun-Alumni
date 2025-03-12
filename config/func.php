@@ -176,6 +176,7 @@ function programcode($program)
     }
 }
 function Studentid($program){
+    //this is the worst
     switch($program){
         case "bsit";
         return "11";
