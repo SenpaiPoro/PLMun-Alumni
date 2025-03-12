@@ -112,6 +112,30 @@ function deleteQuery($tablename, $id, $personalId){
     return $result;
 }
 
+function age ($id){
+    global $conn;
+
+    $query = "SELECT bday FROM personal WHERE tempcode = '$id'";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    $dob = $row['bday'];
+    $today = new DateTime();
+    $birthdate = new DateTime($dob);
+    $age = $today->diff($birthdate)->y;
+
+    $currentMonth = $today->format('m');
+    $currentDay = $today->format('d');
+    $birthMonth = $birthdate->format('m');
+    $birthDay = $birthdate->format('d');
+
+    if (($currentMonth < $birthMonth) || ($currentMonth == $birthMonth && $currentDay < $birthDay)) {
+        $age;
+    }else{
+        $age--;
+    }
+
+    return $age;
+}
 
 function programcode($program)
 {
