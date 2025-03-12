@@ -173,6 +173,35 @@ function programcode($program)
         break;                                               
     default:
         return $program;
+    }
 }
+function Studentid($program){
+    switch($program){
+        case "";
+        return;
+        break;
+        case "";
+        return;
+        break;
+        case "";
+        return;
+        break;
+        case "";
+        return;
+        break;
+        case "";
+        return;
+        break;
+        case "";
+        return;
+        break;
+        case "";
+        return;
+        break;
+        
+    }
+
 }
+
+
 ?>
