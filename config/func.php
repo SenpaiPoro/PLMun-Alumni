@@ -99,15 +99,20 @@ function deleteQuery($tablename, $id, $personalId){
     $personalId = validate($personalId);
 
     $query = 
-   "DELETE  $table, personal, contacts
-    FROM $table
+   "DELETE  
+    $table, personal, contacts
+    FROM 
+    $table
     JOIN 
     personal 
-    ON $table.tempcode = personal.tempcode
+    ON 
+    $table.tempcode = personal.tempcode
     JOIN
     contacts
-    ON personal.tempcode = contacts.contactId
-    WHERE contacts.contactId = '$personalId'";
+    ON 
+    personal.tempcode = contacts.contactId
+    WHERE 
+    contacts.contactId = '$personalId'";
     $result = mysqli_query($conn, $query);
     return $result;
 }
