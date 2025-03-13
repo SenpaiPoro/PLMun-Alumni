@@ -53,6 +53,15 @@
                     <label><b>Relationship:</b><?php echo $row['RelationStatus'] ;?></label><br>
                 </div>
                 </div>
+                <div class="account-info">
+                <h2>Social Media Account</h2>
+                <br>
+                <div class="form-group">
+                <label><b>facebook:</b> <?php $age = age($tempcode); echo $age ;?></label><br>
+                    <label><b>instagram:</b> <?php echo $row['sex'] ;?></label><br>
+                    <label><b>twitter:</b><?php echo $row['RelationStatus'] ;?></label><br>
+                </div>
+                </div>
                 <br>
 </section>
                 <a class="save-btn" id="saveEvents" href="edit-profile.php">Edit</a>
