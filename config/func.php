@@ -99,7 +99,7 @@ function deleteQuery($tablename, $id, $personalId){
     $personalId = validate($personalId);
 
     $query = 
-    "DELETE  $table, personal, contacts
+   "DELETE  $table, personal, contacts
     FROM $table
     JOIN 
     personal 
@@ -176,7 +176,6 @@ function programcode($program)
     }
 }
 function Studentid($program){
-    //this is the worst
     switch($program){
         case "bsit";
         return "11";
