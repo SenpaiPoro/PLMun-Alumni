@@ -105,7 +105,8 @@ body::before {
     z-index: 1; /* Ensure the overlay is above the background */
   }
 .login-container {
-    margin-top: 120px;
+    margin-top: 200px;
+    margin-bottom: auto;
     z-index: 1; 
     position: absolute;
     background-color:#2c3135 ;
