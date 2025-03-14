@@ -2,7 +2,7 @@
 <div class="main-content">
             <div class="content">
              <div class="prof">
-               <form action="../admin/admin/code.php" method="POST" enctype="multipart/form-data">
+               <form action="../admin/config/code.php" method="POST" enctype="multipart/form-data">
                 
                <div class="profile">
             <div class="profile-pic-container">
