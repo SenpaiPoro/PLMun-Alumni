@@ -98,7 +98,8 @@ function deleteQuery($tablename, $id, $personalId){
     $id = validate($id);
     $personalId = validate($personalId);
 
-    $query = "DELETE  
+    $query = 
+   "DELETE  
     $table, personal, contacts
     FROM 
     $table
