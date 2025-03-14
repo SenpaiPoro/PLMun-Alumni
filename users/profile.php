@@ -60,7 +60,7 @@
                 <label><b>facebook:</b> <?php $age = age($tempcode); echo $age ;?></label><br>
                     <label><b>instagram:</b> <?php echo $row['sex'] ;?></label><br>
                     <label><b>twitter:</b><?php echo $row['RelationStatus'] ;?></label><br>
-                </div>
+                </div> 
                 </div>
                 <br>
 </section>
