@@ -64,7 +64,7 @@ if(isset($_POST['update']))
 
     if($user['status'] != 200)
     {
-        redirect('Home_Edit.php?id='.$EventId.'', 'ID not found.');
+        redirect('../admin/Home_Edit.php?id='.$EventId.'', 'ID not found.');
     }
     
     if ($name != '' && $description != '')
@@ -79,16 +79,16 @@ if(isset($_POST['update']))
         
         if($result)
         {
-            redirect('Home_Settings.php', 'Alumni Successfully Updated');
+            redirect('../admin/Home_Settings.php', 'Alumni Successfully Updated');
         }
         else
         {
-            redirect('Home_Edit.php', 'Something went wrong.');
+            redirect('../admin/Home_Edit.php', 'Something went wrong.');
         }
     }
     else
     {
-        redirect('Home_Edit.php','Please Fill Up all the input Fields');
+        redirect('../admin/Home_Edit.php','Please Fill Up all the input Fields');
     }   
 }
 
