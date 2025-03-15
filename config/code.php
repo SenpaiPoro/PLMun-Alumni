@@ -51,7 +51,7 @@ if(isset($_POST['save']))
 }
 
 // //////////////////
-// Home Management Upadate Data
+// Home Management Upadate user data
 ////////////////////
 
 if(isset($_POST['update']))
@@ -91,8 +91,9 @@ if(isset($_POST['update']))
         redirect('../admin/Home_Edit.php','Please Fill Up all the input Fields');
     }   
 }
-
-
+//////////////////////////////
+// Users Update profile data//
+//////////////////////////////
 if(isset($_POST['updateprofile']))
 {
     $profileId = validate($_POST['profileid']);
