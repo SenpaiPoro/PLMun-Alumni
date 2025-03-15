@@ -1,6 +1,5 @@
 <?php
 session_start();
-require 'code.php'
 require 'dbcon.php';
 
 function validate($inputData)

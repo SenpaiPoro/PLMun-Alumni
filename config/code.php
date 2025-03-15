@@ -37,16 +37,16 @@ if(isset($_POST['save']))
         $result = mysqli_query($conn, $users) ;
         if($result && $personalresult && $contactresult)
         {
-            redirect('Home_Settings.php', 'Users Successfully Added');
+            redirect('../admin/Home_Settings.php', 'Users Successfully Added');
         }
         else
         {
-            redirect('Home_Management.php', 'Something went wrong.');
+            redirect('../admin/Home_Management.php', 'Something went wrong.');
         } 
     }
     else
     {
-        redirect('Home_Management.php','Please Fill Up all the input Fields');
+        redirect('../admin/Home_Management.php','Please Fill Up all the input Fields');
     }   
 }
 
