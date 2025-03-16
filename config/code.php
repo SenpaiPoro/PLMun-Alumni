@@ -180,16 +180,16 @@ if(isset($_POST['saveEvent']))
         
         if($result)
         {
-            redirect('Event.php', 'Event Successfully Added');
+            redirect('../admin/Event.php', 'Event Successfully Added');
         }
         else
         {
-            redirect('Add-Event.php', 'Something went wrong.');
+            redirect('../admin/Add-Event.php', 'Something went wrong.');
         }
     }
     else
     {
-        redirect('Add-Event.php','Please Fill Up all the input Fields');
+        redirect('../admin/Add-Event.php','Please Fill Up all the input Fields');
     }   
 }
 
@@ -221,16 +221,16 @@ if($name !='' && $day !='' && $description !='')
 
     if($result)
     { 
-        redirect('Event.php', 'Event Successfully Upadate!');
+        redirect('../admin/Event.php', 'Event Successfully Upadate!');
     }
     else
     {
-        redirect('Event-Edit.php', 'Something Wend Wrong');
+        redirect('../admin/Event-Edit.php', 'Something Wend Wrong');
     }
 }
 else
 {
-    redirect('Event-Edit.php', 'Fill up All The Form');
+    redirect('../admin/Event-Edit.php', 'Fill up All The Form');
 }
 
 }
