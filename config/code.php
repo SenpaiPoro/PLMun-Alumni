@@ -102,6 +102,8 @@ if(isset($_POST['updateprofile']))
     $landlineNumber = validate($_POST['landlineNumber']);
     $RelationStatus = validate($_POST['RelationStatus']);
     $workStatus = validate($_POST['workStatus']);
+    $address = validate($_POST['address']);
+
 
    if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
         $file_name = $_FILES['image']['name'];
@@ -146,7 +148,8 @@ if(isset($_POST['updateprofile']))
     contacts.email = '$email',
     contacts.landline = '$landlineNumber',
     personal.RelationStatus = '$RelationStatus',
-    personal.WorkStatus = '$workStatus'
+    personal.WorkStatus = '$workStatus',
+    personal.address = '$address'
     WHERE contacts.contactId = '$profileId'"; 
     $result = mysqli_query($conn, $query);
     if($result)
@@ -199,7 +202,7 @@ if(isset($_POST['updateEvent']))
     $day = validate($_POST['date']);
     $description = validate($_POST  ['description']);
     $image = validate($_POST['image']);
-
+    
     $user = getByid('event', $EventId);
     if($user['status'] != 200)
     {
