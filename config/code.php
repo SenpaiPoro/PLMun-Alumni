@@ -139,8 +139,6 @@ if(isset($_POST['updateprofile']))
     {
 
     }
-
-
     $query = "UPDATE contacts 
     JOIN personal ON contacts.contactId = personal.tempcode
     SET
@@ -153,7 +151,7 @@ if(isset($_POST['updateprofile']))
     $result = mysqli_query($conn, $query);
     if($result)
     {
-        redirect('../../users/profile.php', 'Profile Successfully Updated');
+        redirect('../../users/profile.php', '');
     } else {
         echo "Failed to upload file.";
         exit;
