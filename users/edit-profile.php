@@ -47,7 +47,7 @@
                     <option value="Separated">Separated</option>
                     <option value="Divorced">Divorced</option>
                 </Select>
-                <label>Working Status:</label>
+                <label><br>Working Status:</label>
                 <Select name="workStatus" value="<?php echo $row['WorkStatus'] ;?>">
                     <option value=<?php echo $row['WorkStatus'] ;?>><?php echo $row['WorkStatus'] ;?></option>
                     <option value="Employed">Employed</option>
@@ -55,6 +55,8 @@
                     <option value="Student">Student</option>
                     <option value="Retired">Retired</option>
                 </Select>
+                <br><label><br>Address</label>
+                    <input type="text" name="address" value="<?php echo $row['address'] ;?>"><br>
                 </div>
                 <div class="account-info">
                 </div>
