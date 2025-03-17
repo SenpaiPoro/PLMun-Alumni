@@ -59,6 +59,7 @@ if(isset($_POST['update']))
     $name = validate($_POST['colleges']);
     $description = validate($_POST['program']);
     $image = validate($_POST['tempcode']);
+    $graduatedyear = validate($_POST['graduatedyear']);
     $EventId = validate($_POST['Id']);
     $user = getByid('users', $EventId);
 
