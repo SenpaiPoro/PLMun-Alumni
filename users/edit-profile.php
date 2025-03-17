@@ -38,7 +38,6 @@
                     <br>
                 <h4>Others</h4>
                 <br><label>Relationship Status:</label>
-                <!-- <input type="text" name="RelationStatus" value="<?php //echo $row['RelationStatus'] ;?>"><br> -->
                 <Select name="RelationStatus" value="<?php echo $row['RelationStatus'] ;?>">
                 <option value=<?php echo $row['RelationStatus'] ;?>> <?php echo $row['RelationStatus'] ;?></option>
                     <option value="Single">Single</option>
