@@ -73,7 +73,8 @@ if(isset($_POST['update']))
         $query = "UPDATE users SET
         colleges = '$name',
         program = '$description',
-        tempcode = '$image'
+        tempcode = '$image',
+        graduated = '$graduatedyear'
         WHERE id = '$EventId' "; 
         
         $result = mysqli_query($conn, $query);
