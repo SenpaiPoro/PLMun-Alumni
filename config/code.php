@@ -167,9 +167,10 @@ if(isset($_POST['updateprofile']))
 if(isset($_POST['saveEvent']))
 {
     $name = validate($_POST['name']);
-    $day = validate($_POST['day']);
     $description = validate($_POST['description']);
-    
+    $program = validate($_POST['program']);
+    $image = validate($_POST['image']);
+
 
     if ($name != "" && $description != "" && $day != "")
     {
