@@ -32,6 +32,5 @@ require '../admin/config/func.php';
 
         <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
 
-            <?php include ('navbar.php') ?>
 
                 <div class="container-fluid py-4">
