@@ -11,6 +11,7 @@ if(isset($_POST['save']))
     $firstname = validate($_POST['firstname']);
     $lastname = validate($_POST['lastname']);
     $middlename = validate($_POST['middlename']);
+    $level = validate($_POST['level']);
     $sex =  validate($_POST['sex']);
     $graduated = validate($_POST['graduated']);
     $bday = validate($_POST['bday']);
@@ -23,8 +24,8 @@ if(isset($_POST['save']))
      && $firstname != '' && $lastname != '' && $middlename != '' && $sex != ''
       && $graduated != '' && $bday != '')
     {
-        $users = "INSERT INTO users (colleges,program,tempcode,username,graduated) 
-        VALUES ('$colleges','$program','$tempcode' ,'$username' ,'$graduated')";   
+        $users = "INSERT INTO users (level,colleges,program,tempcode,username,graduated) 
+        VALUES ('$level', '$colleges','$program','$tempcode' ,'$username' ,'$graduated')";   
 
         $personal = "INSERT INTO personal (tempcode,FirstName,MiddleName,LastName,sex, bday)
         VALUES ('$tempcode','$firstname','$middlename','$lastname','$sex' ,'$bday')";
