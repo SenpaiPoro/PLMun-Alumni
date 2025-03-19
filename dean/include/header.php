@@ -1,5 +1,5 @@
 <?php
-require '../../admin/config/func.php';
+require '../admin/config/func.php';
 ?>
 
 <!DOCTYPE html>
@@ -16,14 +16,14 @@ require '../../admin/config/func.php';
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
-  <link href="../../admin/admin/assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="../../admin/admin/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="../admin/admin/assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="../admin/admin/assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="../../admin/admin/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="../admin/admin/assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
-   <link  href="../../users/Style/prof.css" rel="stylesheet" />
-  <link id="pagestyle" href="assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
+   <link  href="../users/Style/prof.css" rel="stylesheet" />
+  <link id="pagestyle" href="../admin/admin/assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
