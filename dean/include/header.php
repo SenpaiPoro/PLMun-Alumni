@@ -14,9 +14,9 @@ require '../admin/config/func.php';
   PLMun Alumni Tracer
   </title>
   <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/c ss?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
-  <link href="../admin/admin/assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="../admin/assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../admin/admin/assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
