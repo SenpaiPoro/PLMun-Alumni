@@ -137,7 +137,6 @@ function age ($id){
     }else{
         $age--;
     }
-
     return $age;
 }
 
@@ -214,14 +213,13 @@ function Studentid($program){
         default:
         return "00";
     }
-
 }
 function filter(){
 
     return 0;
 }
 
-//// for Dean Function
+//// for Dean Function to get data from a specifi colleges
 function GetCollegeData($tablename, $collegename)
 {
     global $conn;
@@ -234,4 +232,5 @@ function GetCollegeData($tablename, $collegename)
     return $result;
 
 }
+//filtering Functions
 ?>
