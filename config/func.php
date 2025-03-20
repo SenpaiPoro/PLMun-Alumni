@@ -221,4 +221,17 @@ function filter(){
     return 0;
 }
 
+//// for Dean Function
+function GetCollegeData($tablename, $collegename)
+{
+    global $conn;
+    $college = validate($collegename);
+    $table = validate($tablename);
+
+    $query = "SELECT * FROM $table
+              WHERE colleges = '$college'";
+    $result = mysqli_query($conn, $query);
+    return $result;
+
+}
 ?>
