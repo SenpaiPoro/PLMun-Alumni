@@ -13,14 +13,18 @@
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
-            // if ($access == $row['colleges'] && $tempcode == $row['tempcode']) {
-            //     $id = $row[ 'id'];
+             if ("student" == $row['level']) {
+                 $id = $row[ 'id'];
                   $_SESSION['id'] = $row['id'];
                   $_SESSION['tempcode'] = $row['tempcode'];   
                  header('Location: userDashboard.php');
-            // } else {
-             //     echo"<script> alert ('Access Denied'); </script>";
-            // }
+             } else {
+                 $id = $row[ 'id'];
+                 $_SESSION['id'] = $row['id'];
+                 $_SESSION['tempcode'] = $row['tempcode'];   
+                 $_SESSION['colleges'] = $row['colleges'];
+                header('Location: ../admin/dean/index.php');             
+            }
         } else {
             echo"<script> alert ('Incorect Code'); </script>";
         }  
