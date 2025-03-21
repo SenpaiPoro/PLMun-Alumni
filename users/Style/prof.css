@@ -106,3 +106,10 @@ input, select {
         text-align: center;
     }
 }
+
+.chart {
+    width: 1200px;
+    height: 650px;
+    padding:50px;
+    margin: 0 auto;
+}

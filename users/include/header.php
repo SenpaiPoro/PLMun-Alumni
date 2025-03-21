@@ -29,4 +29,6 @@ $sql = "SELECT *
 </head>
 <body>
 
+
+
 <?php include('sidebar.php')?>
