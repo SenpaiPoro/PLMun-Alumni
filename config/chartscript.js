@@ -1,30 +1,38 @@
 const ctx = document.getElementById('myChart');
 
-fetch("chartcode.php")
-.then((response) => {
-    return response.json();
-})
-.then((data)=> {
-    createChart(data, 'bar')
-});
+fetch("../config/chartcode.php")
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        return response.json();
+    })
+    .then((data) => {
+        createChart(data, 'bar');
+    })
+    .catch((error) => {
+        console.error("Error fetching data:", error);
+    });
 
-function createChart(charData, type){
-new Chart(ctx, {
-  type: type,
-  data: {
-    labels: charData.map(row => row.program),
-    datasets: [{
-      label: 'Alumni',
-      data: charData.map(row => row.graduated),
-      borderWidth: 1
-    }]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    }
-  }
-});
+function createChart(chartData, type) {
+    new Chart(ctx, {
+        type: type,
+        data: {
+            labels: chartData.map(row => row.program), // Use 'program' for labels
+            datasets: [{
+                label: 'Alumni Graduated',
+                data: chartData.map(row => row.graduated), // Use 'graduated' for data
+                borderWidth: 1,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)', // Add background color
+                borderColor: 'rgba(75, 192, 192, 1)' // Add border color
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
 }
