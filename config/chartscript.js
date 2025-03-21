@@ -23,7 +23,7 @@ function createChart(chartData, type) {
                 label: 'Alumni Graduated',
                 data: chartData.map(row => row.graduated), // Use 'graduated' for data
                 borderWidth: 1,
-                backgroundColor: 'rgba(75, 192, 192, 0.2)', // Add background color
+                backgroundColor: 'rgba(90, 229, 229, 0.2)', // Add background color
                 borderColor: 'rgba(75, 192, 192, 1)' // Add border color
             }]
         },
