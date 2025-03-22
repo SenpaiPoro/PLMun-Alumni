@@ -62,6 +62,7 @@ if(isset($_POST['update']))
     $image = validate($_POST['tempcode']);
     $graduatedyear = validate($_POST['graduatedyear']);
     $EventId = validate($_POST['Id']);
+    $page = validate($_POST['page']);
     $user = getByid('users', $EventId);
 
     if($user['status'] != 200)
@@ -80,15 +81,14 @@ if(isset($_POST['update']))
         
         $result = mysqli_query($conn, $query);
         
-        if($result)
-        {
+        if($result){
+            if($page != "alumnilist"){
             redirect('../admin/Home_Settings.php', 'Alumni Successfully Updated');
-        }
-        else
-        {
-            redirect('../admin/Home_Edit.php', 'Something went wrong.');
+        }else{
+            redirect('../dean/alumnilist.php', 'Alumni Successfully Updated');
         }
     }
+}
     else
     {
         redirect('../admin/Home_Edit.php','Please Fill Up all the input Fields');
