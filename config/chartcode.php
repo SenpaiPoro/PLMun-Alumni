@@ -1,19 +1,16 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "alumnisystem");
+session_start();
+require 'Database.php'; // Include the Database class
 
-if (!$conn) {
-    die("Connection to Database Failed: " . mysqli_connect_error());
-}
+// Initialize the database connection
+$db = new Database("localhost", "root", "", "alumnisystem");
 
-$sql = "SELECT * FROM users where colleges = 'CITCS' "; // Fetch only the required columns
-$res = $conn->query($sql);
+// Fetch data based on the college (dynamic input)
+$colleges = $_GET['colleges']; // Use a default value if not provided
+$query = "SELECT * FROM users WHERE colleges = '$colleges'";
+$data = $db->fetchData($query);
 
-$data = [];
-while ($row = $res->fetch_assoc()) {
-    array_push($data, $row);
-}
-
+// Return the data as JSON
+header('Content-Type: application/json');
 echo json_encode($data);
-
-mysqli_close($conn); // Close the connection
 ?>
