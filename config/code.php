@@ -57,9 +57,9 @@ if(isset($_POST['save']))
 
 if(isset($_POST['update']))
 {
-    $name = validate($_POST['colleges']);
-    $description = validate($_POST['program']);
-    $image = validate($_POST['tempcode']);
+    $colleges = validate($_POST['colleges']);
+    $program = validate($_POST['program']);
+    $tempcode = validate($_POST['tempcode']);
     $graduatedyear = validate($_POST['graduatedyear']);
     $EventId = validate($_POST['Id']);
     $page = validate($_POST['page']);
@@ -73,9 +73,9 @@ if(isset($_POST['update']))
     if ($name != '' && $description != '')
     {
         $query = "UPDATE users SET
-        colleges = '$name',
-        program = '$description',
-        tempcode = '$image',
+        colleges = '$colleges',
+        program = '$program',
+        tempcode = '$tempcode',
         graduated = '$graduatedyear'
         WHERE id = '$EventId' "; 
         
