@@ -6,15 +6,15 @@ fetch("../config/chartcode.php")
     const collegeUsersData = processChartData(data.college_users);
     
     // Create charts
-    createChart('allUsersChart', allUsersData, 'All Alumni Programs');
-    createChart('collegeUsersChart', collegeUsersData, data.college_name + ' Alumni');
+    createChart('allUsersChart', allUsersData, 'All Alumni Programs', 'bar');
+    createChart('collegeUsersChart', collegeUsersData, data.college_name + ' Alumni' ,'pie');
     createChart('collegeUsersChart', collegeUsersData, `${data.college_users[0]?.colleges || 'Your College'} Alumni`);
   })
   .catch(error => console.error('Error:', error));
 
 // Data processing function
 function processChartData(rawData) {
-  const programs = [...new Set(rawData.map(item => item.program))];
+  const programs = [...new Set(rawData.map(item => item.program))]; 
   const graduatedCount = {};
   
   // Count graduates per program
@@ -35,9 +35,9 @@ function processChartData(rawData) {
 }
 
 // Chart creation function
-function createChart(canvasId, chartData, title) {
-  new Chart(document.getElementById(canvasId), {
-    type: 'bar',
+function createChart(canvasId, chartData, title, type) {
+    new Chart(document.getElementById(canvasId), {
+      type: type,
     data: chartData,
     options: {
       responsive: true,
