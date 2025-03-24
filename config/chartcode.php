@@ -3,13 +3,21 @@ session_start();
 require 'dbcon.php';
 $college = $_SESSION['colleges'];
 
-$sql = "SELECT * FROM users where colleges = '$college' "; // Fetch only the required columns
-$res = $conn->query($sql);
+// Query 1: All users
+$query = "SELECT * FROM users"; 
+$result = $conn->query($query);
+$database = $result->fetch_all(MYSQLI_ASSOC);
 
-$data = [];
-while ($row = $res->fetch_assoc()) {
-    array_push($data, $row);
-}
+// Query 2: College-specific users
+$stmt = $conn->prepare("SELECT * FROM users WHERE colleges = ?");
+$stmt->bind_param("s", $college);
+$stmt->execute();
+$data = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
-echo json_encode($data);
+// Combine and output
+echo json_encode([
+    'all_users' => $database,
+    'college_users' => $data,
+    'college_name' => $data[0]['colleges'] ?? 'Unknown College'
+]);
 ?>
