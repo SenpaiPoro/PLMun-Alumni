@@ -5,6 +5,9 @@ require 'func.php';
 ////////////////////
 if(isset($_POST['save']))
 {
+    /////////////Redirecting Purpose only////////
+    $superadmin = validate($_POST['superadmin']);
+    ////////////////////////////////////////////
     $colleges = validate($_POST['colleges']);
     $program = validate($_POST['program']);
     $tempcode = validate($_POST['tempcode']);
@@ -38,7 +41,11 @@ if(isset($_POST['save']))
         $result = mysqli_query($conn, $users) ;
         if($result && $personalresult && $contactresult)
         {
-            redirect('../admin/Home_Settings.php', 'Users Successfully Added');
+            if($superadmin != Null){
+                redirect('../admin/Home_Settings.php', 'Users Successfully Added');
+            }else{
+                redirect('../dean/alumnilist.php', 'Users Successfully Added');
+            }
         }
         else
         {
