@@ -61,45 +61,49 @@ if(isset($_POST['save']))
 // //////////////////
 // Home Management Upadate user data
 ////////////////////
-
-if(isset($_POST['update']))
-{
+if(isset($_POST['update'])) {
+    // Validate all inputs
     $colleges = validate($_POST['colleges']);
     $program = validate($_POST['program']);
     $tempcode = validate($_POST['tempcode']);
     $graduatedyear = validate($_POST['graduatedyear']);
-    $EventId = validate($_POST['Id']);
+    $EventId = (int)validate($_POST['Id']); // Force integer type
     $page = validate($_POST['page']);
+    
+    // Verify ID exists first
     $user = getByid('users', $EventId);
+    if($user['status'] != 200) {
+        redirect('../admin/Home_Edit.php?id='.$EventId, 'ID not found.');
+    }
 
-    if($user['status'] != 200)
-    {
-        redirect('../admin/Home_Edit.php?id='.$EventId.'', 'ID not found.');
+    // Validate required fields
+    if(empty($colleges) || empty($program)) {
+        redirect('../admin/Home_Edit.php?id='.$EventId, 'Please fill all required fields');
+    }
+
+    // Use prepared statement
+    $query = "UPDATE users SET 
+              colleges = ?, 
+              program = ?, 
+              tempcode = ?, 
+              graduated = ? 
+              WHERE id = ?";
+    
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ssssi", $colleges, $program, $tempcode, $graduatedyear, $EventId);
+    
+    if($stmt->execute()) {
+        $redirect = ($page == "alumnilist") 
+                  ? '../dean/alumnilist.php' 
+                  : '../admin/Home_Settings.php';
+        redirect($redirect, 'Alumni Successfully Updated');
+    } else {
+        // Log the error for debugging
+        error_log("Update failed: " . $stmt->error);
+        redirect('../admin/Home_Edit.php?id='.$EventId, 'Update failed. Please try again.');
     }
     
-    if ($name != '' && $description != '')
-    {
-        $query = "UPDATE users SET
-        colleges = '$colleges',
-        program = '$program',
-        tempcode = '$tempcode',
-        graduated = '$graduatedyear'
-        WHERE id = '$EventId' "; 
-        
-        $result = mysqli_query($conn, $query);
-        
-        if($result){
-            if($page != "alumnilist"){
-            redirect('../admin/Home_Settings.php', 'Alumni Successfully Updated');
-        }else{
-            redirect('../dean/alumnilist.php', 'Alumni Successfully Updated');
-        }
-    }
-}
-    else
-    {
-        redirect('../admin/Home_Edit.php','Please Fill Up all the input Fields');
-    }   
+    $stmt->close();
 }
 //////////////////////////////
 // Users Update profile data//
