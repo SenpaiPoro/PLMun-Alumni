@@ -58,7 +58,10 @@ function getByid($tablename, $id)
     $table = validate($tablename);
     $id = validate($id);
 
-    $query = "SELECT * FROM  $table WHERE id= '$id' LIMIT 1";
+    $query = "SELECT * FROM  $table 
+    INNER JOIN 
+    personal ON users.tempcode = personal.tempcode
+    WHERE users.id= '$id' LIMIT 1";
     $result = mysqli_query($conn, $query);
 
     if($result)
