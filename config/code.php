@@ -88,7 +88,7 @@ if(isset($_POST['update'])) {
               WHERE id = ?";
     
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("ssssi", $colleges, $program, $graduatedyear, $EventId);
+    $stmt->bind_param("ssii", $colleges, $program, $graduatedyear, $EventId);
     
     if($stmt->execute()) {
         $redirect = ($page == "alumnilist") 
