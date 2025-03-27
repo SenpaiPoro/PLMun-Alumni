@@ -66,6 +66,10 @@ if(isset($_POST['update'])) {
     $colleges = validate($_POST['colleges']);
     $program = validate($_POST['program']);
     $graduatedyear = validate($_POST['graduatedyear']);
+    $firstname = validate($_POST['firstname']);
+    $lastname = validate($_POST['lastname']);
+    $middlename = validate($_POST['middlename']);
+    $sex = validate($_POST['sex']);
     $EventId = (int)validate($_POST['Id']); // Force integer type
     $page = validate($_POST['page']);
     
@@ -81,14 +85,22 @@ if(isset($_POST['update'])) {
     }
 
     // Use prepared statement
-    $query = "UPDATE users SET 
-              colleges = ?, 
-              program = ?, 
-              graduated = ? 
-              WHERE id = ?";
+    $query = "UPDATE users
+    JOIN personal ON 
+    users.tempcode = personal.tempcode
+    SET
+    users.colleges = ?, 
+    users.program = ?, 
+    users.graduated = ?,
+    personal.FirstName = ?,
+    personal.LastName = ?,
+    personal.MiddleName = ?,
+    personal.sex = ?
+    WHERE id = $EventId";
     
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("ssii", $colleges, $program, $graduatedyear, $EventId);
+    $stmt->bind_param("ssissss", $colleges, $program, $graduatedyear, $firstname, $lastname, 
+                                  $middlename, $sex);
     
     if($stmt->execute()) {
         $redirect = ($page == "alumnilist") 
