@@ -186,38 +186,48 @@ if(isset($_POST['updateprofile']))
 
     }
 // ////////////////////////////////////////////////
-// Event Management Add Data
-////////////////////////////////////////////////////
-if(isset($_POST['saveEvent']))
-{
+// Event Management Add Data //////////////////////
+///////////////////////////////////////////////////
+if(isset($_POST['AddEvent']))
+{ 
+      $level = validate($_POST['level']);
     $name = validate($_POST['name']);
     $description = validate($_POST['description']);
-    $program = validate($_POST['program']);
-    $image = validate($_POST['image']);
+    $colleges = validate($_POST['colleges']);
 
+    if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
+        $file_name = $_FILES['image']['name'];
+        $file_temp = $_FILES['image']['tmp_name'];
+        $folder = '../../users/Style/events/' . $file_name;
 
-    if ($name != "" && $description != "" && $day != "")
-    {
-        $query = "INSERT INTO event (name,date,description,image) 
-        VALUES ('$name','$day','$description','$filename')";   
+        // Move the uploaded file to the desired directory
+        // Move the uploaded file to the desired directory
+        if (move_uploaded_file($file_temp, $folder)) {
+        $query = "INSERT INTO posts (photos,name,description,college) 
+        VALUES ('$file_name','$name','$description','$college')";   
         
         $result = mysqli_query($conn, $query);
         
         if($result)
-        {
-            redirect('../admin/Event.php', 'Event Successfully Added');
+        {   
+            if($level == "SuperAdmin"){
+                redirect('../admin/Event.php', 'Event Successfully Uploaded');
+            }else{
+                redirect('../../users/Add-Event.php', 'Event Successfully Uploaded');
+            }
         }
-        else
+        else if($level == "SuperAdmin")
         {
             redirect('../admin/Add-Event.php', 'Something went wrong.');
+        }else{
+            redirect('../../users/Add-Event.php', 'Something went wrong.');
         }
+    }else{
+        exit;
     }
-    else
-    {
-        redirect('../admin/Add-Event.php','Please Fill Up all the input Fields');
-    }   
-}
 
+    }
+}
 // Event Management Upadte Data
 
 if(isset($_POST['updateEvent']))

@@ -93,6 +93,17 @@ function getByid($tablename, $id)
     }
 }
 
+function deletetable($tablename, $id){
+    global $conn;
+
+    $table = validate($tablename);
+    $id = validate($id);
+
+    $query = "DELETE FROM $table WHERE id = $id";
+    $result = mysqli_query($conn, $query);
+    return $result;
+}
+
 function deleteQuery($tablename, $id, $personalId){
     global $conn;
 
