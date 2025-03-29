@@ -241,7 +241,7 @@ function GetCollegeData($tablename, $collegename)
     $table = validate($tablename);
 
     $query = "SELECT * FROM $table
-              WHERE colleges = '$college' AND level = 'student'";
+              WHERE co lleges = '$college' AND level = 'student' and program != 'NULL'";
     $result = mysqli_query($conn, $query);
     return $result;
 
