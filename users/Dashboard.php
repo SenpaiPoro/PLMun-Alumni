@@ -19,7 +19,7 @@ $sql = "SELECT users.id, users.tempcode, personal.FirstName, personal.MiddleName
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
+    <title>Alumni Dashboard</title>
     <link rel="stylesheet" href="Style/users-dashboard.css">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
