@@ -102,7 +102,7 @@ function deletetable($tablename, $id){
     $query = "DELETE FROM $table WHERE id = $id";
     $result = mysqli_query($conn, $query);
     return $result;
-}
+}   
 
 function deleteQuery($tablename, $id, $personalId){
     global $conn;
