@@ -252,5 +252,18 @@ function GetCollegeData($tablename, $collegename)
     return $result;
 
 }
+
+function GetProgramData($tablename, $programname)
+{
+    global $conn;
+    $program = validate($programname);
+    $table = validate($tablename);
+
+    $query = "SELECT * FROM $table
+              WHERE co lleges = '$college' AND level = 'student' and program = '$program'";
+    $result = mysqli_query($conn, $query);
+    return $result;
+
+}
 //filtering Functions
 ?>
