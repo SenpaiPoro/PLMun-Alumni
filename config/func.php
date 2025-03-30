@@ -39,18 +39,24 @@ function checkId($paramType){
     }
 }
 
-function GetData($tablename)
+function GetData($tablename, $collegeFilter = null)
 {
     global $conn;
+    $table = validate($tablename); n
 
-    $table = validate($tablename);
-
-    $query = "SELECT * FROM $table";
-    $result = mysqli_query($conn, $query);
-    return $result;
-
+    if ($collegeFilter) {
+        // Query with filter
+        $query = "SELECT * FROM $table WHERE colleges = ?";
+        $stmt = mysqli_prepare($conn, $query);
+        mysqli_stmt_bind_param($stmt, "s", $collegeFilter);
+        mysqli_stmt_execute($stmt);
+        return mysqli_stmt_get_result($stmt);
+    } else {
+        // Query without filter (show all)
+        $query = "SELECT * FROM $table";
+        return mysqli_query($conn, $query);
+    }
 }
-
 function getByid($tablename, $id)
 {
     global $conn;
