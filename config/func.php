@@ -42,7 +42,7 @@ function checkId($paramType){
 function GetData($tablename, $collegeFilter = null)
 {
     global $conn;
-    $table = validate($tablename); n
+    $table = validate($tablename); 
 
     if ($collegeFilter) {
         // Query with filter
@@ -57,6 +57,7 @@ function GetData($tablename, $collegeFilter = null)
         return mysqli_query($conn, $query);
     }
 }
+
 function getByid($tablename, $id)
 {
     global $conn;
@@ -247,7 +248,7 @@ function GetCollegeData($tablename, $collegename)
     $table = validate($tablename);
 
     $query = "SELECT * FROM $table
-              WHERE co lleges = '$college' AND level = 'student' and program != 'NULL'";
+              WHERE colleges = '$college' AND level = 'student' and program != 'NULL'";
     $result = mysqli_query($conn, $query);
     return $result;
 
@@ -260,7 +261,7 @@ function GetProgramData($tablename, $programname)
     $table = validate($tablename);
 
     $query = "SELECT * FROM $table
-              WHERE co lleges = '$college' AND level = 'student' and program = '$program'";
+              WHERE colleges = '$college' AND level = 'student' and program = '$program'";
     $result = mysqli_query($conn, $query);
     return $result;
 
