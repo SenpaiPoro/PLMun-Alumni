@@ -13,7 +13,7 @@ $sql = "SELECT users.id, users.tempcode, personal.FirstName, personal.MiddleName
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
 ?>
-
+//try to modify the users
 <!DOCTYPE html>
 <html lang="en">
 <head>
