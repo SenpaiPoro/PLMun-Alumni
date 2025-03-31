@@ -14,7 +14,7 @@ $sql = "SELECT users.id, users.tempcode, personal.FirstName, personal.MiddleName
         $row = $result->fetch_assoc();
 ?>
 
-git push --set-upstream main main<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
