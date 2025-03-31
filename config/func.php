@@ -254,6 +254,4 @@ function GetCollegeData($tablename, $collegename)
 
 }
 
-
-//filtering Functions
 ?>
