@@ -190,7 +190,7 @@ if(isset($_POST['updateprofile']))
 ///////////////////////////////////////////////////
 if(isset($_POST['AddEvent']))
 { 
-      $level = validate($_POST['level']);
+    $level = validate($_POST['level']);
     $name = validate($_POST['name']);
     $description = validate($_POST['description']);
     $colleges = validate($_POST['colleges']);
@@ -204,7 +204,7 @@ if(isset($_POST['AddEvent']))
         // Move the uploaded file to the desired directory
         if (move_uploaded_file($file_temp, $folder)) {
         $query = "INSERT INTO posts (photos,name,description,college) 
-        VALUES ('$file_name','$name','$description','$college')";   
+        VALUES ('$file_name','$name','$description','$colleges')";   
         
         $result = mysqli_query($conn, $query);
         
