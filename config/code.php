@@ -203,7 +203,7 @@ if(isset($_POST['AddEvent']))
         // Move the uploaded file to the desired directory
         // Move the uploaded file to the desired directory
         if (move_uploaded_file($file_temp, $folder)) {
-        $query = "INSERT INTO posts (photos,name,description,college) 
+        $query = "INSERT INTO posts (photos,name,description,colleges) 
         VALUES ('$file_name','$name','$description','$colleges')";   
         
         $result = mysqli_query($conn, $query);
