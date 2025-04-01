@@ -256,10 +256,6 @@ function GetCollegeData($tablename, $collegename)
 
 
 
-
-
-
-
 // filtering functions
 function GetProgramData($tablename, $programname)
 {
