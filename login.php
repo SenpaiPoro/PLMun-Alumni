@@ -7,7 +7,7 @@ if (isset($_POST['submit']))
 
     if(!empty($username) && !empty($password))
     {
-        if($username=='Super_Admin' && $password=='hero')
+        if($username=='admin' && $password=='hero')
         {
             header("Location: admin/index.php");
         }
