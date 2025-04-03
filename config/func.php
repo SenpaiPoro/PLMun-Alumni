@@ -239,20 +239,46 @@ function filter(){
 
     return 0;
 }
+function GetCollegeData($table, $college = "", $searchQuery = "") {
+    global $conn; // Ensure you're using the correct database connection
 
-//// for Dean Function to get data from a specifi colleges
-function GetCollegeData($tablename, $collegename)
-{
-    global $conn;
-    $college = validate($collegename);
-    $table = validate($tablename);
+    // Base SQL query
+    $sql = "SELECT * FROM $table WHERE 1=1"; // Ensures SQL is always valid
 
-    $query = "SELECT * FROM $table
-              WHERE colleges = '$college' AND level = 'student' and program != 'NULL'";
-    $result = mysqli_query($conn, $query);
-    return $result;
+    // Parameters array
+    $params = [];
+    $types = "";
 
+    // Add college filter if not empty
+    if (!empty($college)) {
+        $sql .= " AND colleges = ?";
+        $params[] = $college;
+        $types .= "s";
+    }
+
+    // Add search query filter if not empty
+    if (!empty($searchQuery)) {
+        $sql .= " AND username LIKE ?";
+        $params[] = "%" . $searchQuery . "%";
+        $types .= "s";
+    }
+
+    // Prepare statement
+    $stmt = mysqli_prepare($conn, $sql);
+
+    // Bind parameters dynamically if there are any
+    if (!empty($params)) {
+        mysqli_stmt_bind_param($stmt, $types, ...$params);
+    }
+
+    // Execute query
+    mysqli_stmt_execute($stmt);
+
+    // Return results
+    return mysqli_stmt_get_result($stmt);
 }
+
+
 
 
 
