@@ -3,9 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nifty NFT Landing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c7c3f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background: #c7c3f4;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .social-buttons .btn {
+            background: #00bcd4;
+            color: white;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: transform 0.2s ease;
+        }
+        .social-buttons .btn:hover {
+            transform: scale(0.95);
+        }
+        .hero {
+            padding: 50px 20px;
+        }
+        .hero h1 {
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .hero input {
+            padding: 10px;
+            width: 250px;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .hero .cta {
+            display: block;
+            background: #00bcd4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            margin: 10px auto;
+            font-size: 18px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.2s ease;
+        }
+        .hero .cta:hover {
+            transform: scale(0.95);
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            transition: 0.2s ease;
+        }
+        .nft-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .nft-gallery img {
+            width: 150px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease;
+        }
+        .nft-gallery img:hover {
+            transform: scale(1.1);
+        }
+        .accomplishments {
+            padding: 40px;
+        }
+        .accomplishments h2 {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+
+        }
+        .card {
+            transition: transform 0.2s ease;
+            background: linear-gradient(to bottom, #00bcd4, #ffffff);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            width: 250px;
+            text-align: left;
+        }
+        .card:hover{
+            transform: scale(1.05);
+
+        }
+        .card h3 {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .card p {
+            font-size: 14px;
+        }
+        footer {
+            padding: 20px;
+            background: #c7c3f4;
+            text-align: center;
+        }
+        .footer-buttons .icon-btn {
+            background: #00bcd4;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: transform 0.2s ease;
+        }
+        .footer-buttons .icon-btn:hover {
+            transform: scale(0.95);
+        }
+    </style>
 </head>
 <body>
-    <h1>HEllo wolrd</h1>
+    <header>
+        <div class="logo">PLMun</div>
+        <div class="social-buttons">
+            <button class="btn"><a href="https://www.facebook.com/plmunofficial" style="text-decoration: none; color: #ffffff;">Facebook</a></button>
+            <button class="btn">Instagram</button>
+        </div>
+    </header>
+    <section class="hero">
+        <h1>STEP INTO THE FUTURE</h1>
+        <p>Pamantasan ng Lungsod ng Muntinlupa <br> Alumni System</p>
+        <button class="cta"><a href="users/users.php"  style="text-decoration: none; color: #ffffff;">Login Into PLMun Alumni System →</a></button>
+    </section>
+    <section class="nft-gallery">
+        <img src="users/Style/Photos/Campus.jpg" alt="campus NFT">
+        <img src="users/Style/Photos/dance.jpg" alt="dace NFT">
+        <img src="users/Style/Photos/flag.jpg" alt="Flag NFT">
+        <img src="users/Style/Photos/PlmunLogo.png" alt="Logo NFT">
+    </section>
+    <section class="accomplishments">
+        <h2>ACCOMPLISHMENTS THAT DEFINE US</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Vision</h3>
+                <p>PLMun envisions itself as a premier, socially responsive, and sustainable local
+                    <br> university nurturing future-ready and ethical leaders.</p>
+            </div>
+            <div class="card">
+                <h3>Mission</h3>
+                <p>To provide quality, inclusive, and relevant education that fosters innovation, research, and community engagement
+                    <br> for the holistic development of students and the progress of Muntinlupa City and beyond.</p>
+            </div>
+            <div class="card">
+                <h3>Core Values</h3>
+                <p> → Patriotism<br>
+                    → Respect <br>
+                    → Integrity <br>
+                    → Discipline <br>
+                    → Excellence </p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 All rights reserved.</p>
+        <div class="footer-buttons">
+            <button class="icon-btn"><a href="https://www.facebook.com/Lps.Sensei.0310/" style="text-decoration: none; color: #ffffff;">Facebook</a></button>
+            <button class="icon-btn"><a href="https://www.instagram.com/cs.marlon03/" style="text-decoration: none; color: #ffffff;">Instagram</a></button>
+            <button class="icon-btn"><a href="https://github.com/SenpaiPoro?tab=overview&from=2025-04-01&to=2025-04-04" style="text-decoration: none; color: #ffffff;">GitHub</a></button>
+        </div>
+    </footer>
 </body>
 </html>
