@@ -279,21 +279,28 @@ function GetCollegeData($table, $college = "", $searchQuery = "") {
 }
 
 
+function GetComment($tablename, $idnumber){
+    global $conn;
+    $table = validate($tablename);
+    $id = validate($idnumber);
 
+    $query = "SELECT * FROM $table WHERE id = $id";
+    return mysqli_query($conn, $query);
+}
 
 
 // filtering functions
-function GetProgramData($tablename, $programname)
-{
-    global $conn;
-    $program = validate($programname);
-    $table = validate($tablename);
+// function GetProgramData($tablename, $programname)
+// {
+//     global $conn;
+//     $program = validate($programname);
+//     $table = validate($tablename);
 
-    $query = "SELECT * FROM $table
-              WHERE colleges = '$college' AND level = 'student' and program = '$program'";
-    $result = mysqli_query($conn, $query);
-    return $result;
+//     $query = "SELECT * FROM $table
+//               WHERE colleges = '$college' AND level = 'student' and program = '$program'";
+//     $result = mysqli_query($conn, $query);
+//     return $result;
 
-}
+// }
 //filtering Functions
 ?>

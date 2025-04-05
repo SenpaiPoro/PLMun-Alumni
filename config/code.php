@@ -271,4 +271,41 @@ else
 }
 
 
+if(isset($_POST['comment'])) {
+    $id = validate($_POST['id']); // lowercase 'id' (matches HTML)
+    $level = validate($_POST['level']);
+    $name = validate($_POST['name']);
+    $photo = validate($_POST['photo']);
+    $comment_text = validate($_POST['comment_text']); // renamed to avoid conflict
+
+    // SQL Injection Fix: Use prepared statements!
+    $comment_query = "INSERT INTO comment (id, name, photo, comment) 
+                     VALUES (?, ?, ?, ?)";
+    $stmt = mysqli_prepare($conn, $comment_query);
+    mysqli_stmt_bind_param($stmt, "ssss", $id, $name, $photo, $comment_text);
+    $result = mysqli_stmt_execute($stmt);
+
+    if($result) {
+        // Fixed redirect syntax + URL encoding
+        if($level == "SuperAdmin") {
+            header("Location: ../admin/ViewNews.php?id=" . urlencode($id));
+        } else {
+            header("Location: ../dean/ViewNews.php?id=" . urlencode($id));
+        }
+        exit();
+    } else {
+        // Error handling
+        $error = "Something went wrong.";
+        if($level == "SuperAdmin") {
+            header("Location: ../admin/Add-Event.php?error=" . urlencode($error));
+        } else {
+            header("Location: ../dean/Add-Event.php?error=" . urlencode($error));
+        }
+        exit();
+    }
+} else {
+    exit("Invalid request.");
+}
+
+
 ?>
