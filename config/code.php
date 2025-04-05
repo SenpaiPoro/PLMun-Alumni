@@ -213,14 +213,14 @@ if(isset($_POST['AddEvent']))
             if($level == "SuperAdmin"){
                 redirect('../admin/Event.php', 'Event Successfully Uploaded');
             }else{
-                redirect('../../users/Add-Event.php', 'Event Successfully Uploaded');
+                redirect('../dean/Add-Event.php', 'Event Successfully Uploaded');
             }
         }
         else if($level == "SuperAdmin")
         {
             redirect('../admin/Add-Event.php', 'Something went wrong.');
         }else{
-            redirect('../../users/Add-Event.php', 'Something went wrong.');
+            redirect('../dean/Add-Event.php', 'Something went wrong.');
         }
     }else{
         exit;
