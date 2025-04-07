@@ -289,7 +289,9 @@ if(isset($_POST['comment'])) {
         // Fixed redirect syntax + URL encoding
         if($level == "SuperAdmin") {
             header("Location: ../admin/ViewNews.php?id=" . urlencode($id));
-        } else {
+        } else if($level == "dean") {
+            header("Location: ../dean/ViewNews.php?id=" . urlencode($error));
+        }else {
             header("Location: ../../users/ViewNews.php?id=" . urlencode($id));
         }
         exit();
@@ -297,9 +299,11 @@ if(isset($_POST['comment'])) {
         // Error handling
         $error = "Something went wrong.";
         if($level == "SuperAdmin") {
-            header("Location: ../admin/Add-Event.php?error=" . urlencode($error));
-        } else {
-            header("Location: ../dean/Add-Event.php?error=" . urlencode($error));
+            header("Location: ../admin/ViewNews.php?error=" . urlencode($error));
+        } else if($level == "dean") {
+            header("Location: ../dean/ViewNews.php?error=" . urlencode($error));
+        }else {
+            header("Location: ../../users/ViewNews.php?id=" . urlencode($error));
         }
         exit();
     }
