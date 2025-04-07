@@ -290,7 +290,7 @@ if(isset($_POST['comment'])) {
         if($level == "SuperAdmin") {
             header("Location: ../admin/ViewNews.php?id=" . urlencode($id));
         } else {
-            header("Location: ../dean/ViewNews.php?id=" . urlencode($id));
+            header("Location: ../../users/ViewNews.php?id=" . urlencode($id));
         }
         exit();
     } else {
