@@ -11,6 +11,7 @@
                         $data = $result->fetch_assoc();
                        ?>
                        <div class="main-content">
+                       <a href="userDashboard.php" class="btn btn-danger float-end"> Back </a> 
             <div class="card" style="width: 90%; margin:2.5rem;">
             <div class="badge text-info text-wrap" style="width: 12rem;"><?= $data['time']; ?></div>
                 <img src="Style/events/<?= $data['photos']; ?>" class="card-img-top">
