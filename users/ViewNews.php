@@ -1,51 +1,7 @@
 <?php include ('include/header.php'); ?>
-
-<style>
-     .comment-container {
-            width: 100%;
-            margin: 0 auto;
-        }
-        
-        .comment {
-            background-color: white;
-            border-radius: 8px;
-            padding: 16px;
-            margin-bottom: 12px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        
-        .comment-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8px;
-        }
-        
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #4CAF50;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 12px;
-        }
-        
-        .user-name {
-            font-weight: bold;
-            font-size: 18px;
-        }
-        
-        
-        .comment-body {
-            padding-left: 52px; /* avatar width + margin */
-            color: #000;
-            line-height: 1.4;
-        }
-    </style>
+<link  href="Style/collabStyle.css" rel="stylesheet"/>
 <?php
+
                     $paramResult = checkId('id');
                     
                         $sql = "SELECT * 
@@ -76,7 +32,7 @@
                             ?>
         <div class="comment">
             <div class="comment-header">
-                <div class="user-avatar"> <img style="height:60px; width: 60px; border-radius:50%;"<?php 
+                <div class="user-avatar"> <img <?php 
                         if ($commentList['photo'] != NULL) {
                               echo 'src="Style/profile/'.$commentList['photo'].'"';
                         } else {

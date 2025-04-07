@@ -16,8 +16,7 @@ $colleges = $row['colleges'];
   <div class="badge text-info text-wrap" style="width: 12rem;"><?= $postsList['time']; ?></div>
     <h5 class="card-title"><?= $postsList['name']; ?></h5>
     <p class="card-text"><?= $postsList['description']; ?></p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
+    <a href="ViewNews.php?id=<?= $postsList['id'];?>" class="btn btn-info btn-sm">More...</a>  </div>
 </div>
 <br>
 <?php 
