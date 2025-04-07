@@ -57,9 +57,9 @@
                 <h2>Social Media Account</h2>
                 <br>
                 <div class="form-group">
-                <label><b>facebook:</b> <?php $age = age($tempcode); echo $age ;?></label><br>
-                    <label><b>instagram:</b> <?php echo $row['sex'] ;?></label><br>
-                    <label><b>twitter:</b><?php echo $row['RelationStatus'] ;?></label><br>
+                    <label><b>facebook:</b> <a href="<?php echo $row['facebook'] ;?>"  title="Visit Facebook"  target="_blank"> <?php echo $row['facebook'] ;?></a></label><br>
+                    <label><b>instagram:</b><a href="<?php echo $row['instagram'] ;?>"  title="Visit instagram"  target="_blank"> <?php echo $row['instagram'] ;?> </a></label><br>
+                    <label><b>twitter:</b>  <a href="<?php echo $row['twitter'] ;?>"  title="Visit twitter"  target="_blank"> <?php echo $row['twitter'] ;?> </a></label><br>
                 </div> 
                 </div>
                 <br>

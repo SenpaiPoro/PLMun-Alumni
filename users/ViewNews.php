@@ -1,7 +1,6 @@
 <?php include ('include/header.php'); ?>
 <link  href="Style/collabStyle.css" rel="stylesheet"/>
-<?php
-
+                <?php
                     $paramResult = checkId('id');
                     
                         $sql = "SELECT * 

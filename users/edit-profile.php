@@ -1,4 +1,4 @@
-<?php include ('include/header.php'); ?>
+ <?php include ('include/header.php'); ?>
 <div class="main-content">
             <div class="content">
              <div class="prof">
@@ -54,8 +54,16 @@
                     <option value="Student">Student</option>
                     <option value="Retired">Retired</option>
                 </Select>
-                <br><label><br>Address</label>
-                    <input type="text" name="address" value="<?php echo $row['address'] ;?>"><br>
+                <br><label>Address</label>
+                    <input type="text" name="address" value="<?php echo $row['address'] ;?>">
+                    <br><br>
+                    <h4>Social Media</h4>
+                    <label><br>facebook</label>
+                    <input type="text" name="facebook" value="<?php echo $row['facebook'] ;?>">
+                    <br><label><br>instagram</label>
+                    <input type="text" name="instagram" value="<?php echo $row['instagram'] ;?>">
+                    <br><label><br>twitter</label>
+                    <input type="text" name="twitter" value="<?php echo $row['twitter'] ;?>">
                 </div>
                 <div class="account-info">
                 </div>
