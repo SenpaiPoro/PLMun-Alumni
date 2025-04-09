@@ -124,6 +124,9 @@ if(isset($_POST['updateprofile']))
     $email = validate($_POST['email']);
     $phoneNumber = validate($_POST['phoneNumber']);
     $landlineNumber = validate($_POST['landlineNumber']);
+    $facebook = validate($_POST['facebook']);
+    $instagram = validate($_POST['instagram']);
+    $twitter = validate($_POST['twitter']);
     $RelationStatus = validate($_POST['RelationStatus']);
     $workStatus = validate($_POST['workStatus']);
     $address = validate($_POST['address']);
@@ -171,6 +174,9 @@ if(isset($_POST['updateprofile']))
     contacts.phone = '$phoneNumber',
     contacts.email = '$email',
     contacts.landline = '$landlineNumber',
+    contacts.facebook = '$facebook',
+    contacts.instagram = '$instagram',
+    contacts.twitter = '$twitter',
     personal.RelationStatus = '$RelationStatus',
     personal.WorkStatus = '$workStatus',
     personal.address = '$address'
@@ -290,7 +296,7 @@ if(isset($_POST['comment'])) {
         if($level == "SuperAdmin") {
             header("Location: ../admin/ViewNews.php?id=" . urlencode($id));
         } else if($level == "dean") {
-            header("Location: ../dean/ViewNews.php?id=" . urlencode($error));
+            header("Location: ../dean/ViewNews.php?id=" . urlencode($id));
         }else {
             header("Location: ../../users/ViewNews.php?id=" . urlencode($id));
         }
