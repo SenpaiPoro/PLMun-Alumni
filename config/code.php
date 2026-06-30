@@ -33,7 +33,7 @@ if(isset($_POST['save']))
         $personal = "INSERT INTO personal (tempcode,FirstName,MiddleName,LastName,sex, bday)
         VALUES ('$tempcode','$firstname','$middlename','$lastname','$sex' ,'$bday')";
         $personalresult = mysqli_query($conn, $personal);
-        `
+        
         $contacts = "INSERT INTO contacts (contactId,phone,email,landline) 
         VALUES ('$tempcode',null ,null, null)";
         $contactresult = mysqli_query($conn, $contacts);
@@ -56,12 +56,13 @@ if(isset($_POST['save']))
     {
         redirect('../admin/Home_Management.php','Please Fill Up all the input Fields');
     }   
+        
 }
 
 // //////////////////
 // Home Management Upadate user data
 ////////////////////
-if(isset($_POST(['update'])) {
+if(isset($_POST['update'])) {
     $colleges = validate($_POST['colleges']);
     $program = validate($_POST['program']);
     $graduatedyear = validate($_POST['graduatedyear']);
@@ -117,21 +118,21 @@ if(isset($_POST(['update'])) {
 //////////////////////////////
 // Users Update profile data//
 //////////////////////////////
-if(isset($_POST(['updateprofile']))
+if(isset($_POST['updateprofile']))
 {
-    $profileId = validate($_POST(['profileid']);
-    $email = validate($_POST(['email']);
-    $phoneNumber = validate($_POST(['phoneNumber']);
-    $landlineNumber = validate($_POST(['landlineNumber']);
-    $facebook = validate($_POST(['facebook']);
-    $instagram = validate($_POST(['instagram']);
-    $twitter = validate($_POST(['twitter']);
-    $RelationStatus = validate($_POST(['RelationStatus']);
-    $workStatus = validate($_POST(['workStatus']);
-    $address = validate($_POST(['address']);
+    $profileId = validate($_POST['profileid']);
+    $email = validate($_POST['email']);
+    $phoneNumber = validate($_POST['phoneNumber']);
+    $landlineNumber = validate($_POST['landlineNumber']);
+    $facebook = validate($_POST['facebook']);
+    $instagram = validate($_POST['instagram']);
+    $twitter = validate($_POST['twitter']);
+    $RelationStatus = validate($_POST['RelationStatus']);
+    $workStatus = validate($_POST['workStatus']);
+    $address = validate($_POST['address']);
 
 
-   if (isset($_FILES['image']) && $_FILES(['image']['error'] == 0) {
+   if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
         $file_name = $_FILES['image']['name'];
         $file_temp = $_FILES['image']['tmp_name'];
         $folder = '../../users/Style/profile/' . $file_name;
