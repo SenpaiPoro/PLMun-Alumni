@@ -66,7 +66,7 @@ function getByid($tablename, $id)
     $id = validate($id);
 
     $query = "SELECT * FROM  $table 
-    INNER JOIN 
+    INNER JOIN `
     personal ON users.tempcode = personal.tempcode
     WHERE users.id= '$id' LIMIT 1";
     $result = mysqli_query($conn, $query);

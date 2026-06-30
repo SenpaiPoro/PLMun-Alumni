@@ -9,7 +9,7 @@ $allUsers = $conn->query("SELECT program FROM users")->fetch_all(MYSQLI_ASSOC) ?
 $allWorkers = $conn->query("SELECT WorkStatus FROM personal")->fetch_all(MYSQLI_ASSOC) ?: [];
 
 // Query 2: College-specific users
-$stmt = $conn->prepare("SELECT * FROM users WHERE colleges = ?");
+$stmt = $conn->prepare("SELECT * FROM users WHERE colleges = ?");   
 $stmt->bind_param("s", $college);
 $stmt->execute();
 $college_users = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
